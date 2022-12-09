@@ -1,0 +1,15 @@
+---
+- name:  provisioning EC2 instances using Ansible
+  hosts: localhost
+  gather_facts: False
+  
+  tasks:
+     - name: Task # 1 Launch the new EC2 Instance
+       ec2-vol:
+          instance: "{{ instance_type1 }}"
+          volume_size: "{{ volume_size1 }}"
+          wait: true
+          snapshot: "{{ region1 }}"
+          count: "{{ count1 }}"
+          keypair: "{{ keypair1 }}"
+       register: ec2-vol
