@@ -1,0 +1,13 @@
+---
+    - name:  provisioning EC2 instances using Ansible
+      hosts: localhost
+      gather_facts: False
+      
+      tasks:
+         - name: Task # 1 Launch the new EC2 Instance
+           iam:
+              username: "{{ username1 }}"
+              wait: true
+              managed_policy: "{{ managed_policy1 }}"
+              User_groups: "{{ User_groups1 }}"
+           register: iam
