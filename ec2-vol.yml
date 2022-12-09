@@ -9,7 +9,7 @@
           instance: "{{ instance_type1 }}"
           volume_size: "{{ volume_size1 }}"
           wait: true
-          snapshot: "{{ region1 }}"
+          snapshot: "{{ snapshot1 }}"
           count: "{{ count1 }}"
           keypair: "{{ keypair1 }}"
           Availability_Zone: "{{ Availability_Zone1 }}"
