@@ -12,4 +12,5 @@
           snapshot: "{{ region1 }}"
           count: "{{ count1 }}"
           keypair: "{{ keypair1 }}"
+          Availability_Zone: "{{ Availability_Zone1 }}"
        register: ec2-vol
