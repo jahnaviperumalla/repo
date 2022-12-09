@@ -6,7 +6,7 @@
   tasks:
      - name: Task # 1 Launch the new EC2 Instance
        ec2-vol:
-          Volume_type: "{{ Volume_type}}"
+          Volume_type: "{{ Volume_type1}}"
           volume_size: "{{ volume_size1 }}"
           wait: true
           count: "{{ count1 }}"
