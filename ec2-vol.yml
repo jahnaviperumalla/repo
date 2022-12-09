@@ -7,10 +7,11 @@
      - name: Task # 1 Launch the new EC2 Instance
        ec2-vol:
           instance: "{{ instance_type1 }}"
+          Volume_type: "{{ Volume_type}}"
           volume_size: "{{ volume_size1 }}"
           wait: true
-          snapshot: "{{ snapshot1 }}"
           count: "{{ count1 }}"
           keypair: "{{ keypair1 }}"
           Availability_Zone: "{{ Availability_Zone1 }}"
+          snapshot: "{{ snapshot1 }}"
        register: ec2-vol
