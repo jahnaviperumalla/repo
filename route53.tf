@@ -12,8 +12,8 @@ resource "aws_route53_zone" "dev" {
 
 resource "aws_route53_record" "dev-ns" {
   zone_id = aws_route53_zone.main.zone_id
-  name    = "dev.example.io"
-  type    = "NS"
-  ttl     = "30"
+  name    = "name1"
+  type    = "type1"
+  ttl     = "ttl1"
   records = ["10.0.0.1"]
 }
