@@ -7,12 +7,12 @@ Description: >-
   SourceSG:
     Type: AWS::EC2::SecurityGroup
     Properties:
-      VpcId: vpc-1a2b3c4d
+      VpcId: "VpcId1"
       GroupDescription: Sample source security group
   TargetSG:
     Type: AWS::EC2::SecurityGroup
     Properties:
-      VpcId: vpc-1a2b3c4d
+      VpcId: "VpcId1"
       GroupDescription: Sample target security group
   OutboundRule:
     Type: AWS::EC2::SecurityGroupEgress
