@@ -1,6 +1,6 @@
 resource "aws_ami_copy" "example" {
-  name              = "terraform-example"
-  description       = "A copy of ami-xxxxxxxx"
-  source_ami_id     = "ami-xxxxxxxx"
-  source_ami_region = "us-west-2"
+  name              = "name1"
+  description       = "description1"
+  source_ami_id     = "source_ami_id1"
+  source_ami_region = "source_ami_region1"
 }
