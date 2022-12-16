@@ -1,0 +1,15 @@
+---
+- name: Read group from CSV file and return a dictionary
+  read_csv:
+    path: groups.csv
+  register: grouplist
+    
+- name: Create IAM groups in aws cloud
+  iam:
+    iam_type: group
+    name: "{{ group.groupname }}"
+    state: present
+  loop: "{{ grouplist.list }}"
+  loop_control:
+    loop_var: group
+  register: new_groups      
