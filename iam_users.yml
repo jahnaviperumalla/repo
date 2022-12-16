@@ -1,0 +1,16 @@
+---
+- name: Read users from CSV file and return a dictionary
+  read_csv:
+    path: users.csv
+  register: userlist
+    
+- name: Create IAM Users in aws cloud
+  iam:
+    iam_type: user
+    name: "{{ user.name }}"
+    password: "{{ user.password }}"
+    state: present
+    groups: "{{ user.group }}"
+  loop: "{{ userlist.list }}"
+  loop_control:
+    loop_var: user
