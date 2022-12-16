@@ -1,0 +1,9 @@
+---      
+- name: Attach policy to group
+  iam_policy:
+    iam_type: group
+    iam_name: "{{ item.group.groupname }}"
+    policy_name: "readonlyPolicy"
+    policy_json: "{{ lookup('file', 'readonlyPolicy.json') }}" 
+    state: present
+  loop: "{{ new_groups.results }}"
