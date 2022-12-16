@@ -1,5 +1,5 @@
 ---
-- name: Read group from CSV file and return a dictionary
+-name: Read group from CSV file and return a dictionary
   read_csv:
     path: /var/lib/jenkins/workspace/Ansible-IAM/groups.csv
   register: grouplist
