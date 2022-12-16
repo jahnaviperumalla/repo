@@ -4,7 +4,7 @@ Resources:
   MyStateMachine:
     Type: AWS::StepFunctions::StateMachine
     Properties:
-      StateMachineName: HelloWorld-StateMachine
+      StateMachineName: "Name"
       DefinitionString: |-
         {
           "StartAt": "HelloWorld",
