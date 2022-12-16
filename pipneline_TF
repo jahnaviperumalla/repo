@@ -1,0 +1,80 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+            checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/karthikbabudevops/repo.git']]])            
+
+          }
+        }
+        
+        stage('Replacing-parameters') {
+                 steps {
+                    sh "sed -i 's@name1@$name1@g' route53.tf"
+                    sh "sed -i 's@type1@$type1@g' route53.tf"
+                    sh "sed -i 's@ttl1@$ttl1@g' route53.tf"
+                    sh "cat route53.tf"
+                    sh"ls"
+                    sh "mkdir test1"
+                    sh "cp route53.tf test1/."
+                 }
+                 }
+        
+        stage ("terraform init") {
+            steps {
+                sh "cd test1 && terraform init" 
+            }
+        }
+        
+        stage ("terraform Validate") {
+            steps {
+                sh "cd test1 && terraform validate" 
+           }
+        }
+
+        stage ("terraform Plan") {
+            steps {
+                sh "cd test1 && terraform plan" 
+           }
+        }
+
+        stage ("terraform apply approve")  {
+            steps {
+                echo "Apply approval"
+                timeout(time: 7, unit: 'DAYS') {
+                    input message: 'Do you want to apply?', submitter: 'admin'
+        }
+      }
+        }
+        
+        stage ("terraform Apply") {
+            steps {
+                sh "cd test1 && terraform apply --auto-approve" 
+           }
+        }
+
+        stage ("terraform destroy approve")  {
+            steps {
+                echo "Destroy approval"
+                timeout(time: 7, unit: 'DAYS') {
+                    input message: 'Do you want to destroy?', submitter: 'admin'
+        }
+      }
+        }
+
+        
+        stage ("terraform destroy") {
+            steps {
+                sh "cd test1 && terraform destroy --auto-approve" 
+           }
+        }
+        
+    }    
+        
+    post {
+           always {
+              archiveArtifacts artifacts: 'route53.tf', onlyIfSuccessful: true
+         }
+        } 
+}
