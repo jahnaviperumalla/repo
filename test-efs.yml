@@ -1,0 +1,47 @@
+---
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Create Elastic File System v20161029-1200
+Parameters:
+  # EFS
+  PerformanceMode:
+    Type: String
+    Default: generalPurpose
+    AllowedValues:
+    - generalPurpose
+    - maxIO
+Resources:
+  FileSystem:
+    Type: AWS::EFS::FileSystem
+    Properties:
+      FileSystemTags:
+      - Key: Name
+        Value: !Ref AWS::StackName
+      PerformanceMode: !Ref PerformanceMode
+  
+Outputs:
+  FileSystem:
+    Description: FileSystem
+    Value: !Ref FileSystem
+  PerformanceMode:
+    Description: PerformanceMode
+    Value: !Ref PerformanceMode
+  
+#  MountTargetDns1:
+#    Description: MountTarget 1
+#    Value: !GetAtt MountTarget1.DNSName
+#  MountTargetDns2:
+#    Description: MountTarget 2
+#    Value: !GetAtt MountTarget1.DNSName
+#  MountTargetDns3:
+#    Description: MountTarget 3
+#    Value: !GetAtt MountTarget1.DNSName
+Metadata:
+  AWS::CloudFormation::Interface:
+    ParameterGroups:
+    - Label:
+        default: EFS Configuration
+      Parameters:
+      - PerformanceMode
+    ParameterLabels:
+      PerformanceMode:
+        default: EFS Performance Mode
