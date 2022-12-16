@@ -10,12 +10,12 @@ Resources:
     Properties:
       CidrBlock: 172.31.1.0/24
       VpcId: !Ref MountTargetVPC
-      AvailabilityZone: "us-west-2a"
+      AvailabilityZone: "availabilityzon"
  
   FileSystemResource:
     Type: 'AWS::EFS::FileSystem'
     Properties:
-      AvailabilityZoneName: us-west-2a
+      AvailabilityZoneName: "availabilityzone1"
       BackupPolicy:
         Status: ENABLED
       Encrypted: true
@@ -32,7 +32,7 @@ Resources:
             Action:
               - "elasticfilesystem:ClientMount"
             Principal:
-                AWS: 'arn:aws:iam::111122223333:role/EfsReadOnly'
+                AWS: 'arn:aws:iam::882956824445:role/EfsReadOnly'
       KmsKeyId: !GetAtt 
         - key
         - Arn
