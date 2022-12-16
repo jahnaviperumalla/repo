@@ -25,8 +25,8 @@ Resources:
       BlockDeviceMappings: 
         - DeviceName: /dev/sda1
           Ebs: 
-            VolumeSize: '30'
-            VolumeType: gp3
+            VolumeSize: "volumesize12"
+            VolumeType: "volumetype12"
         - DeviceName: /dev/sdm
           Ebs: 
             VolumeSize: '100'
