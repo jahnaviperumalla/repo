@@ -15,7 +15,7 @@ Resources:
   FileSystemResource:
     Type: 'AWS::EFS::FileSystem'
     Properties:
-      AvailabilityZoneName: "availabilityzone1"
+      AvailabilityZoneName: availabilityzone1
       BackupPolicy:
         Status: ENABLED
       Encrypted: true
