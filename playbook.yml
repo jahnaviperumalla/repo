@@ -3,9 +3,9 @@
   gather_facts: true
   connection: local
   tasks:
-    - include: /var/lib/jenkins/workspace/Ansible-IAM/iam_group.yml
+    - include: iam_group.yml
       tags: group
-    - include: /var/lib/jenkins/workspace/Ansible-IAM/iam_group_policy.yml
+    - include: iam_group_policy.yml
       tags: policy      
-    - include: /var/lib/jenkins/workspace/Ansible-IAM/iam_users.yml
+    - include: iam_users.yml
       tags: user
