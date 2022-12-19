@@ -4,8 +4,8 @@
   gather_facts: true
   
   tasks:
-     - name: Launch the new EC2 Instance volume
-       ec2-vol:
+    - name: Launch the new EC2 Instance volume
+      ec2-vol:
           instance: "{{ instnceid }}"
           Volume_type: "{{ Volume_type1}}"
           volume_size: "{{ volume_size1 }}"
@@ -15,4 +15,4 @@
          # keypair: "{{ keypair1 }}"
           #Availability_Zone: "{{ Availability_Zone1 }}"
           #snapshot: "{{ snapshot1 }}"
-       register: ec2-vol
+      register: ec2-vol
