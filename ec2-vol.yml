@@ -1,6 +1,7 @@
 - name: Creating a Volume
   hosts: 127.0.0.1
   gather_facts: False
+  connection: localhost
   tasks:
 
 - name: Creating a Volume
