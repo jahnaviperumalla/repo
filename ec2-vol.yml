@@ -1,18 +1,15 @@
----
-- name:  provisioning EC2 instances volume using Ansible
+- name: Creating a Volume
   hosts: 127.0.0.1
-  gather_facts: false
-  
+  sudo: yes
   tasks:
-    - name: Launch the new EC2 Instance volume
-      ec2-vol:
-          instance: "{{ instnceid }}"
-          Volume_type: "{{ Volume_type1}}"
-          volume_size: "{{ volume_size1 }}"
-          wait: true
-          #count: "{{ count1 }}"
-          device_name: /dev/xvdf
-         # keypair: "{{ keypair1 }}"
-          #Availability_Zone: "{{ Availability_Zone1 }}"
-          #snapshot: "{{ snapshot1 }}"
-      register: ec2-vol
+
+- name: Creating a Volume
+  ec2_vol:
+    aws_access_key: "{{ access_key1  }}"
+    aws_secret_key: "{{ secret_key }}"
+    instance: "{{ instanceid}}"
+    volume_size: "{{ volume_size2 }}"
+    device_name: /dev/xvdf
+    region: 'us-west-2'
+    volume_type: "{{ volume_type1 }}"
+  register: ec2_vol
