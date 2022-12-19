@@ -4,7 +4,7 @@
   gather_facts: False
   
   tasks:
-     - name:  Launch the new EC2 Instance volume
+     - name: Launch the new EC2 Instance volume
        ec2-vol:
           instance: "{{ instnceid }}"
           Volume_type: "{{ Volume_type1}}"
