@@ -6,7 +6,7 @@
 - name: Creating a Volume
   ec2_vol:
     aws_access_key: "{{ access_key1  }}"
-    aws_secret_key: "{{ secret_key }}"
+    aws_secret_key: "{{ secret_key1 }}"
     instance: "{{ instanceid}}"
     volume_size: "{{ volume_size2 }}"
     device_name: /dev/xvdf
