@@ -1,7 +1,7 @@
 ---
 - name:  provisioning EC2 instances volume using Ansible
   hosts: 127.0.0.1
-  gather_facts: true
+  gather_facts: false
   
   tasks:
     - name: Launch the new EC2 Instance volume
