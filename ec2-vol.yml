@@ -1,6 +1,5 @@
 - name: Creating a Volume
   hosts: 127.0.0.1
-  sudo: yes
   tasks:
 
 - name: Creating a Volume
