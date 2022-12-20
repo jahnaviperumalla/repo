@@ -1,6 +1,6 @@
 ---
 -name: Read group from CSV file and return a dictionary
-  read_csv:
+  community.general.read_csv:
     path: groups.csv
   register: grouplist
     
