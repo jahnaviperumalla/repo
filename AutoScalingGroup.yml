@@ -13,9 +13,9 @@ Parameters:
     Type: String
     Description: VpcId of your existing Virtual Private Cloud (VPC)
     ConstraintDescription: must be the VPC Id of an existing Virtual Private Cloud.
-  Subnets1:
+  Subnet1:
     Type: String
-  Subnets2:
+  Subnet2:
     Type: String
     Description: The list of SubnetIds in your Virtual Private Cloud (VPC)
     ConstraintDescription: must be a list of at least two existing subnets associated
@@ -34,7 +34,8 @@ Resources:
     Type: AWS::ElasticLoadBalancingV2::LoadBalancer
     Properties:
       Subnets:
-        Ref: Subnets
+        Ref: Subnet1
+        Ref: Subnet2
   ALBListener:
     Type: AWS::ElasticLoadBalancingV2::Listener
     Properties:
