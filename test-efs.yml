@@ -25,23 +25,3 @@ Outputs:
   PerformanceMode:
     Description: PerformanceMode
     Value: !Ref PerformanceMode
-  
-#  MountTargetDns1:
-#    Description: MountTarget 1
-#    Value: !GetAtt MountTarget1.DNSName
-#  MountTargetDns2:
-#    Description: MountTarget 2
-#    Value: !GetAtt MountTarget1.DNSName
-#  MountTargetDns3:
-#    Description: MountTarget 3
-#    Value: !GetAtt MountTarget1.DNSName
-Metadata:
-  AWS::CloudFormation::Interface:
-    ParameterGroups:
-    - Label:
-        default: EFS Configuration
-      Parameters:
-      - PerformanceMode
-    ParameterLabels:
-      PerformanceMode:
-        default: EFS Performance Mode
