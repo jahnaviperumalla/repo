@@ -8,7 +8,7 @@ Parameters:
   InstanceType:
     Description: Amazon EC2 instance type for the instances
     Type: String
-    Default: deafault2
+    Default: default2
 Resources:
   myLaunchConfig: 
     Type: AWS::AutoScaling::LaunchConfiguration
