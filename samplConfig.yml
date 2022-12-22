@@ -9,11 +9,13 @@ Parameters:
     Description: Amazon EC2 instance type for the instances
     Type: String
     Default: default2
+  
 Resources:
   myLaunchConfig: 
     Type: AWS::AutoScaling::LaunchConfiguration
     Properties:
-      ImageId: !Ref LatestAmiId
+      ImageId: 
+         !Ref LatestAmiId      
       InstanceType: 
         !Ref InstanceType
       
