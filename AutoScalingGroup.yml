@@ -5,10 +5,12 @@ Description: 'AWS CloudFormation Sample Template AutoScalingMultiAZWithNotificat
 Parameters:
   VpcId:
     Type: String
+    Default: "vpcid"
     Description: VpcId of your existing Virtual Private Cloud (VPC)
  
   Subnets:
     Type: List<String>
+    Default: "twosubnets"
     Description: The list of SubnetIds in your Virtual Private Cloud (VPC)
   #Subnet2:
    # Type: List<String>
