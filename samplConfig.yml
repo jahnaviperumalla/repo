@@ -8,14 +8,15 @@ Parameters:
   InstanceType:
     Description: Amazon EC2 instance type for the instances
     Type: String
+    AllowedValues:
+      - t3.micro
+      - t3.small
+      - t3.medium
     Default: "instancetype"
-  
 Resources:
   myLaunchConfig: 
     Type: AWS::AutoScaling::LaunchConfiguration
     Properties:
-      ImageId: 
-         !Ref LatestAmiId      
-      InstanceType: 
-        !Ref InstanceType
+      ImageId: !Ref LatestAmiId
+      InstanceType: !Ref InstanceType
       
