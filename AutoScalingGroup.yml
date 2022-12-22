@@ -7,14 +7,17 @@ Parameters:
     Type: String
     Description: VpcId of your existing Virtual Private Cloud (VPC)
  
-  Subnets:
+  Subnet1:
     Type: List<String>
     Description: The list of SubnetIds in your Virtual Private Cloud (VPC)
-
+  Subnet2:
+    Type: List<String>
+    Description: The list of SubnetIds in your Virtual Private Cloud (VPC)
 Resources:
   ApplicationLoadBalancer:
     Type: AWS::ElasticLoadBalancingV2::LoadBalancer
     Properties:
       Subnets:
-        Ref: Subnets
+        Ref: Subnet1
+        Ref: Subnet2
   
