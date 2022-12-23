@@ -8,8 +8,8 @@
        iam:
 
           iam_type: user
-          aws_access_key: "AKIA43FCT556UDAZXTVT"
-          aws_secret_key: "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"
+          aws_access_key: "accesskey"
+          aws_secret_key: "secretkey"
           name: "username"
           state: "present"
           password: "userpassword"
