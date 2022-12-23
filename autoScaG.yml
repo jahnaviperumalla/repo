@@ -13,8 +13,9 @@ Parameters:
       - t3.medium
     Default: t3.micro
   Subnets:
-    Type: 'List<AWS::EC2::Subnet::Id>'
+    Type: 'List<String>'
     Description: A list of subnets for the Auto Scaling group
+    Default: "subnet-3ad27070,subnet-5c59d824"
 Resources:
   myLaunchTemplate:
     Type: AWS::EC2::LaunchTemplate
