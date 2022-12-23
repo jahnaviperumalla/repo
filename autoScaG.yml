@@ -12,10 +12,14 @@ Parameters:
       - t3.small
       - t3.medium
     Default: t3.micro
+ VpcId:
+    Type: String
+    Default: "vpcid"
+    Description: VpcId of your existing Virtual Private Cloud (VPC)
+ 
   Subnets:
-    Type: 'List<String>'
-    Description: A list of subnets for the Auto Scaling group
-    Default: "subnet-3ad27070,subnet-5c59d824"
+    Type: List<String>
+    Default: "twosubnets"
 Resources:
   myLaunchTemplate:
     Type: AWS::EC2::LaunchTemplate
