@@ -1,0 +1,18 @@
+---
+- name: Creating a Volume
+  hosts: 127.0.0.1
+  gather_facts: False
+  connection: localhost
+
+ 
+
+  tasks:
+    - name: Volume creation
+      ec2_vol:
+        region: "us-west-2"
+        aws_access_key: "AKIA43FCT556UDAZXTVT"
+        aws_secret_key: "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"
+        instance: "i-0b821d26bc531d57b"
+        volume_size: "20"
+        device_name: "/dev/xvdf"
+        volume_type: "gp2"
