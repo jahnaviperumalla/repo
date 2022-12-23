@@ -1,15 +1,18 @@
 ---
--name: Read group from CSV file and return a dictionary
-  community.general.read_csv:
-    path: groups.csv
-  register: grouplist
-    
-- name: Create IAM groups in aws cloud
-  iam:
-    iam_type: group
-    name: "{{ group.groupname }}"
-    state: present
-  loop: "{{ grouplist.list }}"
-  loop_control:
-    loop_var: group
-  register: new_groups      
+- name:  IAM user Creation
+  hosts: localhost
+  gather_facts: False
+  tasks:
+     - name: Task # Launch IAM Group
+
+       iam_group:
+
+
+          aws_access_key: AKIA43FCT556YV67SHNA
+          aws_secret_key: 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
+          name: "groupname"
+          managed_policy:
+              -  arn:aws:iam::aws:policy/AmazonSNSFullAccess"
+          users: "username"
+
+          state: present
