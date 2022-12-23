@@ -12,7 +12,7 @@ Parameters:
       - t3.small
       - t3.medium
     Default: t3.micro
- VpcId:
+  VpcId:
     Type: String
     Default: "vpcid"
     Description: VpcId of your existing Virtual Private Cloud (VPC)
