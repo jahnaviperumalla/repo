@@ -10,9 +10,9 @@
 
           aws_access_key: AKIA43FCT556YV67SHNA
           aws_secret_key: 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
-          name: testgroup1
+          name: "groupname"
           managed_policy:
               -  arn:aws:iam::aws:policy/AmazonSNSFullAccess"
-          users: sampleUser
+          users: "username"
 
           state: present
