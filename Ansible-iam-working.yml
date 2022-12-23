@@ -10,8 +10,8 @@
           iam_type: user
           aws_access_key: "AKIA43FCT556YV67SHNA"
           aws_secret_key: "/o4wnE4mjiA2MZ+PPkWF3ri0g3xvaiE+FvUcPfLr"
-          name: "sampleUser"
+          name: "username"
           state: "present"
-          password: "S@mple@123"
+          password: "userpassword"
           access_key_state: create
        register: iam
