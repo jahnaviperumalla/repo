@@ -9,7 +9,7 @@
 
           iam_type: user
           aws_access_key: "AKIA43FCT556YV67SHNA"
-          aws_secret_key: "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"
+          aws_secret_key: "f3RHSj6fVXy/bg3J4f8Ro4jR7h9QpFoTOYaMSG/7"
           name: "username"
           state: "present"
           password: "userpassword"
