@@ -1,8 +1,6 @@
 AWSTemplateFormatVersion: 2010-09-09
 Description: >-
   Creating Secirity group with ingress,outgress vpcId, CIDR
-
-
  Resources:
   SourceSG:
     Type: AWS::EC2::SecurityGroup
@@ -20,25 +18,11 @@ Description: >-
       IpProtocol: tcp
       FromPort: 0
       ToPort: 65535
-      DestinationSecurityGroupId:
-        Fn::GetAtt:
-          - TargetSG
-          - GroupId
-      GroupId:
-        Fn::GetAtt:
-          - SourceSG
-          - GroupId
+      
   InboundRule:
     Type: AWS::EC2::SecurityGroupIngress
     Properties:
       IpProtocol: tcp
       FromPort: 0
       ToPort: 65535
-      SourceSecurityGroupId:
-        Fn::GetAtt:
-          - SourceSG
-          - GroupId
-      GroupId:
-        Fn::GetAtt:
-          - TargetSG
-          - GroupId
+      
