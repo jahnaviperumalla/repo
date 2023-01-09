@@ -11,7 +11,7 @@ Parameters:
       - t3.micro
       - t3.small
       - t3.medium
-    Default: t3.micro
+    Default: "instancetype"
   VpcId:
     Type: String
     Default: "vpcid"
