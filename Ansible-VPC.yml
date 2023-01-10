@@ -1,0 +1,63 @@
+---
+- name: Creating a VPC
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  tasks:
+    - name: create a new ec2 VPC
+      ec2_vpc:
+        state: present
+        cidr_block: 172.22.0.0/16
+        resource_tags: { "Name":"Development" }
+        subnets:
+          - cidr: 172.22.1.0/24
+            az: us-west-2c
+            resource_tags: { "Name":"Dev1" }
+          - cidr: 172.22.2.0/24
+            az: us-west-2b
+            resource_tags: { "Name":"Dev2"}
+          - cidr: 172.22.3.0/24
+            az: us-west-2a
+            resource_tags: { "Name":"Dev3"}
+        internet_gateway: True
+        route_tables:
+          - subnets:
+              - 172.22.2.0/24
+              - 172.22.3.0/24
+            routes:
+              - dest: 0.0.0.0/0
+                gw: igw
+          - subnets:
+              - 172.22.1.0/24
+            routes:
+              - dest: 0.0.0.0/0
+                gw: igw
+        region: us-west-2
+      register: vpc
+
+    - name: create VPC
+      ec2_vpc_net:
+        name: "AnsibleVPC"
+        cidr_block: "172.22.0.0/16"
+        region: "us-west-1"
+        state: present
+      register: vpc
+    - name: associate subnet to the VPC
+      ec2_vpc_subnet:
+      state: present
+      vpc_id: "172.22.0.0/16"
+      region: "us-west-1"
+      cidr: "172.22.1.0/16"
+      map_public: yes
+      resource_tags:
+        Name: "AnsibleSubnet"
+      register: subnet
+ 
+    - name: create IGW
+      ec2_vpc_igw:
+      vpc_id: "172.22.0.0/16"
+      region: "us-west-1"
+      state: "present"
+      tags:
+        Name: "AnsibleIGW"
+      register: igw
