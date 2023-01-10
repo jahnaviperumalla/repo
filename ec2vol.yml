@@ -7,8 +7,6 @@
   tasks:
     - name: Volume creation
       ec2_vol:
-        #aws_access_key: "accesskey"
-        #aws_secret_key: "secretkey"
         region: "us-west-2"
         instance: "i-0b821d26bc531d57b"
         volume_size: "20"
