@@ -9,6 +9,6 @@
       ec2_vol:
         region: "us-west-2"
         instance: "instanceid"
-        volume_size: "volume_size1"
+        volume_size: volume_size1
         device_name: "/dev/xvdf"
         volume_type: "volume_type1"
