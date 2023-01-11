@@ -1,4 +1,4 @@
-resource "aws_ami_from_instance" "MySampleAMI" {
+resource "aws_ami_from_instance" "name1" {
   name               = "name1"
   source_instance_id = "source_instance_id1"
   tags = {
