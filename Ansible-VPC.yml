@@ -1,63 +1,58 @@
 ---
-- name: Creating a VPC
-  hosts: localhost
+### provision AWS VPC
+- hosts: localhost
   connection: local
-  gather_facts: false
+  
+    
   tasks:
-    - name: create a new ec2 VPC
-      ec2_vpc:
-        state: present
-        cidr_block: 172.22.0.0/16
-        resource_tags: { "Name":"Development" }
-        subnets:
-          - cidr: 172.22.1.0/24
-            az: us-west-2c
-            resource_tags: { "Name":"Dev1" }
-          - cidr: 172.22.2.0/24
-            az: us-west-2b
-            resource_tags: { "Name":"Dev2"}
-          - cidr: 172.22.3.0/24
-            az: us-west-2a
-            resource_tags: { "Name":"Dev3"}
-        internet_gateway: True
-        route_tables:
-          - subnets:
-              - 172.22.2.0/24
-              - 172.22.3.0/24
-            routes:
-              - dest: 0.0.0.0/0
-                gw: igw
-          - subnets:
-              - 172.22.1.0/24
-            routes:
-              - dest: 0.0.0.0/0
-                gw: igw
-        region: us-west-2
-      register: vpc
+    # To get the vpc_id
 
-    - name: create VPC
+    - name: Create VPC
       ec2_vpc_net:
-        name: "AnsibleVPC"
-        cidr_block: "172.22.0.0/16"
-        region: "us-west-1"
-        state: present
-      register: vpc
-    - name: associate subnet to the VPC
+       
+        region: us-west-2
+        name: vpc_name 
+        cidr_block: 172.22.0.0/16
+        state: "present"
+      register: my_vpc
+    # Create the subnet
+    # associate the subnet to the vpc
+    # we map_public to yes this means -
+    # all instance created in this subnet will have a public IP address.
+    - name: create and associate subnet with VPC.
       ec2_vpc_subnet:
-      state: present
-      vpc_id: "172.22.0.0/16"
-      region: "us-west-1"
-      cidr: "172.22.1.0/16"
-      map_public: yes
-      resource_tags:
-        Name: "AnsibleSubnet"
+        state: present
+        
+        vpc_id: "{{ my_vpc.vpc.id }}"
+        region: us-west-2
+        cidr: 172.22.0.0/16
+        map_public: yes
+        resource_tags:
+          Name:  public_subnet_name
       register: subnet
- 
-    - name: create IGW
+
+    # Create Internet gateway.
+    # assign with the vpc.
+    # all instance in this vpc will have access to the internet.
+    - name: Create IGW
       ec2_vpc_igw:
-      vpc_id: "172.22.0.0/16"
-      region: "us-west-1"
-      state: "present"
-      tags:
-        Name: "AnsibleIGW"
+        vpc_id: "{{ my_vpc.vpc.id }}"
+        state: present
+      
+        region: us-west-2
+        tags:
+          Name: igw_name
       register: igw
+
+    - name: Route IGW
+      ec2_vpc_route_table:
+     
+        vpc_id: "{{ my_vpc.vpc.id }}"
+        region: us-west-2
+        subnets:
+          - "{{ subnet.subnet.id }}"
+        routes:
+          - dest: 0.0.0.0/0
+            gateway_id: "{{ igw.gateway_id }}"
+        tags:
+          Name: route_name
