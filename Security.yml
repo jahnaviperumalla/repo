@@ -16,9 +16,9 @@
     - name: Reboot the box if kernel updated
       reboot:
         msg: "Reboot initiated by Ansible for kernel updates"
-        connect_timeout: 5
-        reboot_timeout: 300
-        pre_reboot_delay: 0
-        post_reboot_delay: 30
+        connect_timeout: connect_timeout1
+        reboot_timeout: reboot_timeout1
+        pre_reboot_delay: pre_reboot_delay1
+        post_reboot_delay: post_reboot_delay1
         test_command: uptime
       when: reboot_required_file.stat.exists
