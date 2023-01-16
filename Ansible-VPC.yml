@@ -10,7 +10,7 @@
     - name: Create VPC
       ec2_vpc_net:
        
-        region: us-west-2
+        region: region
         name: vpc_name 
         cidr_block: 172.22.0.0/16
         state: "present"
@@ -24,7 +24,7 @@
         state: present
         
         vpc_id: "{{ my_vpc.vpc.id }}"
-        region: us-west-2
+        region: region
         cidr: 172.22.0.0/16
         map_public: yes
         resource_tags:
@@ -39,7 +39,7 @@
         vpc_id: "{{ my_vpc.vpc.id }}"
         state: present
       
-        region: us-west-2
+        region: region
         tags:
           Name: igw_name
       register: igw
@@ -48,7 +48,7 @@
       ec2_vpc_route_table:
      
         vpc_id: "{{ my_vpc.vpc.id }}"
-        region: us-west-2
+        region: region
         subnets:
           - "{{ subnet.subnet.id }}"
         routes:
