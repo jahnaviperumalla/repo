@@ -12,7 +12,7 @@
        
         region: region
         name: vpc_name 
-        cidr_block: 172.22.0.0/16
+        cidr_block: vpccidr
         state: "present"
       register: my_vpc
     # Create the subnet
@@ -25,7 +25,7 @@
         
         vpc_id: "{{ my_vpc.vpc.id }}"
         region: region
-        cidr: 172.22.0.0/16
+        cidr: subnetcidr
         map_public: yes
         resource_tags:
           Name:  public_subnet_name
