@@ -10,8 +10,8 @@
         region: us-west-2
         instance: instanceid
         volume_size: volume_size1
-        availability_zone: us-west-2a
+        availability_zone: availability_zone1
         device_name: "/dev/xvdf"
         volume_type: volume_type1
-        tags: {"Name":"AnsibleEBS"}
+        tags: {"Name":"tagname"}
         encrypted: false  
