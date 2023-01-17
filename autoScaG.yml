@@ -34,7 +34,7 @@ Resources:
       LaunchTemplate:
         LaunchTemplateId: !Ref myLaunchTemplate
         Version: !GetAtt myLaunchTemplate.LatestVersionNumber
-      MaxSize: '1'
-      MinSize: '0'
-      DesiredCapacity: '1'
-      VPCZoneIdentifier: !Ref Subnets
+      MaxSize: 'MaxSize1'
+      MinSize: 'MinSize1'
+      DesiredCapacity: 'DesiredCapacity1'
+      VPCZoneIdentifier: "VPCZoneIdentifier1"
