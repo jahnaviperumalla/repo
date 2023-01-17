@@ -14,4 +14,4 @@
         device_name: "/dev/xvdf"
         volume_type: volume_type1
         tags: {"Name":"tagname"}
-        encrypted: false  
+        encrypted: boolean  
