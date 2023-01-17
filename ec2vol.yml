@@ -7,7 +7,7 @@
   tasks:
     - name: Volume creation
       ec2_vol:
-        region: "region"
+        region: us-west
         instance: "instanceid"
         volume_size: "volume_size1"
         device_name: "/dev/xvdf"
