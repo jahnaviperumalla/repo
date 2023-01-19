@@ -25,7 +25,7 @@ Resources:
       AvailabilityZoneName: AvailabilityZone1
       BackupPolicy:
         Status: ENABLED
-      Encrypted: true
+      Encrypted: Encrypted1
       LifecyclePolicies:
         - TransitionToIA: LifecyclePolicies1
         - TransitionToPrimaryStorageClass: LifecyclePolicies2
