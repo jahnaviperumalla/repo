@@ -2,7 +2,7 @@ AWSTemplateFormatVersion: 2010-09-09
 Parameters:
   PerformanceMode:
     Type: String
-    Default: generalPurpose
+    Default: PerformanceMode1
     AllowedValues:
     - generalPurpose
     - maxIO
@@ -17,18 +17,18 @@ Resources:
     Properties:
       CidrBlock: 172.31.1.0/24
       VpcId: !Ref MountTargetVPC
-      AvailabilityZone: "us-west-2a"
+      AvailabilityZone: "AvailabilityZone1"
  
   FileSystemResource:
     Type: 'AWS::EFS::FileSystem'
     Properties:
-      AvailabilityZoneName: us-west-2a
+      AvailabilityZoneName: AvailabilityZone1
       BackupPolicy:
         Status: ENABLED
       Encrypted: true
       LifecyclePolicies:
-        - TransitionToIA: AFTER_30_DAYS
-        - TransitionToPrimaryStorageClass: AFTER_1_ACCESS
+        - TransitionToIA: LifecyclePolicies1
+        - TransitionToPrimaryStorageClass: LifecyclePolicies2
       FileSystemTags:
       - Key: Name
         Value: !Ref AWS::StackName
