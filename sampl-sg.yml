@@ -29,7 +29,7 @@ Resources:
           CidrIp:
             Ref: SSHLocation
         - IpProtocol: tcp
-          FromPort: "FromPort1"
-          ToPort: "ToPort2"
+          FromPort: "FromPort3"
+          ToPort: "ToPort3"
           CidrIp:
             Ref: SSHLocation
