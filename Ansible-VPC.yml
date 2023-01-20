@@ -8,7 +8,7 @@
     # To get the vpc_id
 
     - name: Create VPC
-      ec2_vpc_net:
+      ec2_vpc:
        
         region: region
         name: vpc_name 
