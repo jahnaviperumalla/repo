@@ -24,12 +24,12 @@ Resources:
         CidrIp:
           Ref: SSHLocation  
       - IpProtocol: tcp
-          FromPort: "FromPort2"
-          ToPort: "ToPort2"
-          CidrIp:
-            Ref: SSHLocation
-        - IpProtocol: tcp
-          FromPort: "FromPort3"
-          ToPort: "ToPort3"
-          CidrIp:
-            Ref: SSHLocation
+        FromPort: "FromPort2"
+        ToPort: "ToPort2"
+        CidrIp:
+          Ref: SSHLocation
+      - IpProtocol: tcp
+        FromPort: "FromPort3"
+        ToPort: "ToPort3"
+        CidrIp:
+          Ref: SSHLocation
