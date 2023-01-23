@@ -22,19 +22,7 @@ Resources:
       LifecyclePolicies:
         - TransitionToIA: AFTER_30_DAYS
         - TransitionToPrimaryStorageClass: AFTER_1_ACCESS
-      FileSystemTags:
-        - Key: Name
-          Value: TestFileSystem
-      FileSystemPolicy:
-        Version: "2012-10-17"
-        Statement:
-          - Effect: "Allow"
-            Action:
-              - "elasticfilesystem:ClientMount"
-            Principal:
-                AWS: 'arn:aws:iam::882956824445:role/EfsReadOnly'
-      KmsKeyId: !GetAtt 
-        - Arn
+     
 
   MountTargetResource1:
     Type: AWS::EFS::MountTarget
