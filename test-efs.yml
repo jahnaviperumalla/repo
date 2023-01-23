@@ -33,37 +33,7 @@ Resources:
       - Key: Name
         Value: !Ref AWS::StackName
       PerformanceMode: !Ref PerformanceMode
-      FileSystemPolicy:
-        Version: "2012-10-17"
-        Statement:
-          - Effect: "Allow"
-            Action:
-              - "elasticfilesystem:ClientMount"
-            Principal:
-                AWS:  !Sub "arn:aws:iam::${AWS::AccountId}:root"
-      KmsKeyId: !GetAtt 
-        - key
-        - Arn
-  key:
-    Type: AWS::KMS::Key
-    Properties:
-      KeyPolicy:
-        Version: 2012-10-17
-        Id: key-default-1
-        Statement:
-          - Sid: Allow administration of the key
-            Effect: Allow
-            Principal:
-              AWS: !Join 
-                - ''
-                - - 'arn:aws:iam::'
-                  - !Ref 'AWS::AccountId'
-                  - ':root'
-            Action:
-              - 'kms:*'
-            Resource: 
-              - '*'
-
+      
   MountTargetResource1:
     Type: AWS::EFS::MountTarget
     Properties:
