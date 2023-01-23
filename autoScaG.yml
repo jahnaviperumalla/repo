@@ -37,4 +37,4 @@ Resources:
       MaxSize: 'MaxSize1'
       MinSize: 'MinSize1'
       DesiredCapacity: 'DesiredCapacity1'
-      VPCZoneIdentifier: 'VPCZoneIdentifier1'
+      VPCZoneIdentifier: !Ref Subnets
