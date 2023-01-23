@@ -33,3 +33,7 @@ Resources:
         ToPort: "ToPort3"
         CidrIp:
           Ref: SSHLocation
+        Tags: 
+       Tags: 
+      - Key: "Name"
+        Value: "CFT-SG"
