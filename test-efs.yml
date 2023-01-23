@@ -2,7 +2,7 @@ AWSTemplateFormatVersion: 2010-09-09
 Parameters:
   PerformanceMode:
     Type: String
-    Default: generalPurpose
+    Default: PerformanceMode1
     AllowedValues:
     - generalPurpose
     - maxIO
@@ -10,12 +10,12 @@ Resources:
   MountTargetVPC:
     Type: AWS::EC2::VPC
     Properties:
-      CidrBlock: 172.31.0.0/16
+      CidrBlock: 172.20.0.0/16
  
   MountTargetSubnetOne:
     Type: AWS::EC2::Subnet
     Properties:
-      CidrBlock: 172.31.1.0/24
+      CidrBlock: 172.20.1.0/24
       VpcId: !Ref MountTargetVPC
       AvailabilityZone: "AvailabilityZone1"
  
