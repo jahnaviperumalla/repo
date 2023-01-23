@@ -2,7 +2,7 @@ AWSTemplateFormatVersion: 2010-09-09
 Parameters:
   PerformanceMode:
     Type: String
-    Default: PerformanceMode1
+    Default: generalPurpose
     AllowedValues:
     - generalPurpose
     - maxIO
@@ -33,7 +33,7 @@ Resources:
       - Key: Name
         Value: !Ref AWS::StackName
       PerformanceMode: !Ref PerformanceMode
-      
+
   MountTargetResource1:
     Type: AWS::EFS::MountTarget
     Properties:
@@ -42,4 +42,4 @@ Resources:
       SecurityGroups:
       - !GetAtt MountTargetVPC.DefaultSecurityGroup
  
- 
+  
