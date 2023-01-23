@@ -11,7 +11,7 @@
         instance: instanceid
         volume_size: volume_size1
         availability_zone: availability_zone1
-        device_name: "/dev/xvdf"
+        device_name: "/dev/xvdg"
         volume_type: volume_type1
         tags: {"Name":"tagname"}
         encrypted: choice1  
