@@ -36,7 +36,9 @@ Resources:
     Properties:
       KeyName: !Ref 'KeyName'
       ImageId: !Ref LatestAmiId
-      
+      Tags:
+        key: Name
+        Value: MyLaunchConfig
       SecurityGroups:
         - !Ref InstanceSecurityGroup
       InstanceType: !Ref InstanceType
