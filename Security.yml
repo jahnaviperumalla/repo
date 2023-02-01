@@ -2,6 +2,7 @@
 - hosts: localhost
   become: true
   remote_user: ubuntu
+  connection: local
  # become_user: root
   tasks:
     - name: Update apt repo and cache on all Debian/Ubuntu boxes
